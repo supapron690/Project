@@ -76,54 +76,43 @@
     </head>
     <body>
         
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#">Hidden brand</a>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">หน้าแรก <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">ค้นหาโรงพยาบาล</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">โรค หรืออาการ</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">บทความเพื่อสุขภาพ</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">แชร์ประสบการณ์</a>
-            </li>
-            </ul>
-            
+        <div>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="#">Logo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">หน้าแรก</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ค้นหาโรงพยาบาล</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">โรค หรืออาการ</a>
+                </li>    
+                <li class="nav-item">
+                    <a class="nav-link" href="#">บทความเพื่อสุขภาพ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">แชร์ประสบการณ์</a>
+                </li>
+                </ul>
+            </div>  
+            </nav>
         </div>
-        </nav>
-
-      
-        
-        
 
 
 
-        
 
-        <div class="jumbotron" style="margin-bottom:0">
-            <div class="row">
-                <div class="col-3">
-                    <img src="{{ url('storage/Images/1.jpg') }}" class="rounded-circle" alt="Cinque Terre" width="304" height="236"> 
-                </div>
-                <div class="col-9">
-                    <h3>ค้นหาข้อมูลที่ต้องการ</h3>
-                    <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-10" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
+        <div class="jumbotron text-center" style="margin-bottom:0">
+            <img src="{{ url('storage/Images/1.jpg') }}" class="rounded-circle" alt="Cinque Terre" width="304" height="236"> 
+            <h3>ค้นหาข้อมูลที่ต้องการ</h3>
+            
+            <input type="search" class="form-control" id="search">
+            <p>Resize this responsive page to see the effect!</p> 
         </div>
        
 
