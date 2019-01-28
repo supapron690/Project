@@ -1,24 +1,43 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+   
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+         <!-- Page Load Style Sheet -->
+         <link rel="stylesheet" href="css\bootstrap.min.css">        <!-- Bootstrap -->
+         <link rel="stylesheet" href="css\style.css">        <!-- Main Style -->
+         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+         <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
+        <!-- End Page Load Style Sheet -->
 
-        <title>Laravel</title>
+        
+        <!-- Page Load Script -->
+        <script src="js\jquery-3.3.1.min.js"></script>      <!-- jQuery 3.3.1 -->
+        <script src="js\bootstrap.min.js"></script>     <!-- Bootstrap -->
+        <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.2.0/build/ol.js"></script>
+         <!-- End page Load Script -->
+
+
+        <title>ระบบให้คำแนะนำสุขภาพ</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
 
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                background-color: #ffffff;
+                color: #000000;
+                font-family: 'Prompt', sans-serif;
+               /* font-family: 'Nunito', sans-serif; */
                 font-weight: 200;
                 height: 100vh;
-                margin: 0;
+                margin: 10;
             }
+
 
             .full-height {
                 height: 100vh;
@@ -61,6 +80,50 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            /* class Font Sytem*/
+            
+            .Fontt {
+                font-family: 'Prompt', sans-serif;
+                color: #000000;
+                font-size: 20px;
+            }
+
+            
+            .FontBody {
+                font-family: 'Prompt', sans-serif;
+                font-size: 14px;
+                color: #00BFFF;
+            }
+
+            .Fonthead {
+                font-family: 'Prompt', sans-serif;  
+                color: 000000#;
+            }
+
+        
+            .FontBody1 {
+                font-family: 'Prompt', sans-serif;
+                color: #000000;
+            }
+
+            .FontBody2 {
+                font-family: 'Prompt', sans-serif;
+                font-size: 12px;
+                color: #000000;
+            }
+
+            /* end class font*/
+
+            /* ค้นหา*/
+            .search-box
+            {
+                background-image:url('storage/Images/magnifying-glass.png');
+                background-repeat:no-repeat;
+                margin-right: 10px;  
+                            
+            }
+            
         </style>
 
 
@@ -75,41 +138,11 @@
 
     </head>
     <body>
-        <!-- 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01"x>
-            <a class="navbar-brand" href="#">Hidden brand</a>
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">หน้าแรก <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">ค้นหาโรงพยาบาล</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">โรค หรืออาการ</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">บทความเพื่อสุขภาพ</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">แชร์ประสบการณ์</a>
-            </li>
-            </ul>
-            
-        </div>
-        </nav>
-
-         -->
-        <div class="row">
-            <div class="col-4">
-            </div>
-            <div class="col-8">
-                <ul class="nav nav-pills nav-fill">
-                        <li class="nav-item">
+        <div class="container-fluid">
+            <header id="header">
+                <div>
+                    <ul class="nav nav-pills Fontt justify-content-end">
+                        <li li role="presentation" class="disabled">
                             <a class="nav-link " href="#">หน้าแรก</a>
                         </li>
                         <li class="nav-item">
@@ -124,31 +157,167 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">แชร์ประสบการณ์</a>
                         </li>
+                        <li class="nav-item" >
+                            <a class="nav-link" href="#">เข้าสู่ระบบ</a>
+                        </li>
                     </ul>
-            </div>
-        </div> <!--class="row" -->
-                
-                    
-
-
-
-        
-
-        <div class="jumbotron" style="margin-bottom:0">
-            <div class="row">
-                <div class="col-3">
-                    <img src="{{ url('storage/Images/1.jpg') }}" class="rounded-circle" alt="Cinque Terre" width="304" height="236"> 
+                </div> 
+                <div style="background-color: #F0F8FF;padding:5%">
+                    <div class="row">
+                        <div class="col-sm-3  text-center">
+                            <img src="{{ url('storage/Images/logo.png') }}"  alt="Cinque Terre" width="200" height="200"> 
+                        </div> <!--Class col-3 --> 
+                        <div class="col-sm-9 ">
+                            <div class="row" style="width:100%;height:100%">
+                                <div class="col" style="margin:auto">
+                                    <form>
+                                        <div class="form-group Fonthead" >
+                                            <label for="pwd" style="font-size: 18px;">ค้นหาข้อมูลที่ต้องการ:</label>
+                                            <div class="input-group">
+                                                <input type="search" class="form-control " id="search" placeholder="เช่น โรงพยาบาล โรคหัวใจ บทความเพื่อสุขภาพ เป็นต้น" name="search">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-9">
-                    <h3>ค้นหาข้อมูลที่ต้องการ</h3>
-                    <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-10" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+            </header>
+            <div id="body" style="margin-top:3%">
+                <!--Class col-9 --> 
+                <div class="section">
+                    <div class="row">
+                        <div class="col-sm-10 Fonthead">
+                            <h5>โรค หรืออาการที่ควรรู้</h5>  
+                        </div> <!--Class col-sm-12w-->
+                        <div class="col-sm-2 FontBody" style="text-align:right">
+                                <span>+ดูทั้งหมด</span>  
+                        </div> <!--Class col-sm-12w-->
+                    </div>
+                    <div class="row">
+                        <div class="card-deck col-md-3">
+                            <div class="card">
+                                    <img class="card-img-top" src="{{ url('storage/Images/hosptal.jpg') }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><span class="stb_color">ศูนย์หัวใจ</span> | โรงพยาบาลรามาธิบดี</h5>
+                                    <p class="card-text"><small class="text-muted">ให้บริการในลักษณะบริการเบ็ดเสร็จ ณ จุดเดียว ที่มุ่งเน้นการดูแลผู้ป่วยแบบบูรณการ เพื่อให้การรักษามีประสิทธิภาพ</small></p>
+                                    <a target="new" href="https://med.mahidol.ac.th/cvmc/th/content/premium?fbclid=IwAR0B8jaDqNvISJfK10drhW3n-E8sW2wrM3LF9Ydx9UlBAE7CdrlLpyspdQo" class="detail-link">
+                                        <p class="card-text stb_color">รายละเอียดเพิ่มเติม&ensp;<i class="fa fa-arrow-alt-circle-right"></i></p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-deck col-md-3">
+                            <div class="card">
+                                    <img class="card-img-top" src="{{ url('storage/Images/hosptal.jpg') }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><span class="stb_color">ศูนย์หัวใจ</span> | โรงพยาบาลรามาธิบดี</h5>
+                                    <p class="card-text"><small class="text-muted">ให้บริการในลักษณะบริการเบ็ดเสร็จ ณ จุดเดียว ที่มุ่งเน้นการดูแลผู้ป่วยแบบบูรณการ เพื่อให้การรักษามีประสิทธิภาพ</small></p>
+                                    <a target="new" href="https://med.mahidol.ac.th/cvmc/th/content/premium?fbclid=IwAR0B8jaDqNvISJfK10drhW3n-E8sW2wrM3LF9Ydx9UlBAE7CdrlLpyspdQo" class="detail-link">
+                                        <p class="card-text stb_color">รายละเอียดเพิ่มเติม&ensp;<i class="fa fa-arrow-alt-circle-right"></i></p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-deck col-md-3">
+                            <div class="card">
+                                    <img class="card-img-top" src="{{ url('storage/Images/hosptal.jpg') }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><span class="stb_color">ศูนย์หัวใจ</span> | โรงพยาบาลรามาธิบดี</h5>
+                                    <p class="card-text"><small class="text-muted">ให้บริการในลักษณะบริการเบ็ดเสร็จ ณ จุดเดียว ที่มุ่งเน้นการดูแลผู้ป่วยแบบบูรณการ เพื่อให้การรักษามีประสิทธิภาพ</small></p>
+                                    <a target="new" href="https://med.mahidol.ac.th/cvmc/th/content/premium?fbclid=IwAR0B8jaDqNvISJfK10drhW3n-E8sW2wrM3LF9Ydx9UlBAE7CdrlLpyspdQo" class="detail-link">
+                                        <p class="card-text stb_color">รายละเอียดเพิ่มเติม&ensp;<i class="fa fa-arrow-alt-circle-right"></i></p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-deck col-md-3">
+                            <div class="card">
+                                    <img class="card-img-top" src="{{ url('storage/Images/hosptal.jpg') }}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title"><span class="stb_color">ศูนย์หัวใจ</span> | โรงพยาบาลรามาธิบดี</h5>
+                                     <p class="card-text"><small class="text-muted">ให้บริการในลักษณะบริการเบ็ดเสร็จ ณ จุดเดียว ที่มุ่งเน้นการดูแลผู้ป่วยแบบบูรณการ เพื่อให้การรักษามีประสิทธิภาพ</small></p>
+                                    <a target="new" href="https://med.mahidol.ac.th/cvmc/th/content/premium?fbclid=IwAR0B8jaDqNvISJfK10drhW3n-E8sW2wrM3LF9Ydx9UlBAE7CdrlLpyspdQo" class="detail-link">
+                                            <p class="card-text stb_color">รายละเอียดเพิ่มเติม&ensp;<i class="fa fa-arrow-alt-circle-right"></i></p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="body" style="margin-top:3%">
+                    <!--Class col-9 --> 
+                    <div class="section">
+                        <div class="row">
+                            <div class="col-sm-10 Fonthead">
+                                <h5>บทความเพื่อสุขภาพ</h5>  
+                            </div> <!--Class col-sm-12w-->
+                            <div class="col-sm-2 FontBody" style="text-align:right">
+                                    <span>+ดูทั้งหมด</span>  
+                            </div> <!--Class col-sm-12w-->
+                        </div>
+                        <div class="row">
+                            <div class="card-deck col-md-3">
+                                <div class="card">
+                                        <img class="card-img-top" src="{{ url('storage/Images/2.jpg') }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><span class="stb_color">ศูนย์หัวใจ</span> | โรงพยาบาลรามาธิบดี</h5>
+                                        <p class="card-text"><small class="text-muted">ให้บริการในลักษณะบริการเบ็ดเสร็จ ณ จุดเดียว ที่มุ่งเน้นการดูแลผู้ป่วยแบบบูรณการ เพื่อให้การรักษามีประสิทธิภาพ</small></p>
+                                        <a target="new" href="https://med.mahidol.ac.th/cvmc/th/content/premium?fbclid=IwAR0B8jaDqNvISJfK10drhW3n-E8sW2wrM3LF9Ydx9UlBAE7CdrlLpyspdQo" class="detail-link">
+                                            <p class="card-text stb_color">รายละเอียดเพิ่มเติม&ensp;<i class="fa fa-arrow-alt-circle-right"></i></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-deck col-md-3">
+                                <div class="card">
+                                        <img class="card-img-top" src="{{ url('storage/Images/2.jpg') }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><span class="stb_color">ศูนย์หัวใจ</span> | โรงพยาบาลรามาธิบดี</h5>
+                                        <p class="card-text"><small class="text-muted">ให้บริการในลักษณะบริการเบ็ดเสร็จ ณ จุดเดียว ที่มุ่งเน้นการดูแลผู้ป่วยแบบบูรณการ เพื่อให้การรักษามีประสิทธิภาพ</small></p>
+                                        <a target="new" href="https://med.mahidol.ac.th/cvmc/th/content/premium?fbclid=IwAR0B8jaDqNvISJfK10drhW3n-E8sW2wrM3LF9Ydx9UlBAE7CdrlLpyspdQo" class="detail-link">
+                                            <p class="card-text stb_color">รายละเอียดเพิ่มเติม&ensp;<i class="fa fa-arrow-alt-circle-right"></i></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-deck col-md-3">
+                                <div class="card">
+                                        <img class="card-img-top" src="{{ url('storage/Images/2.jpg') }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><span class="stb_color">ศูนย์หัวใจ</span> | โรงพยาบาลรามาธิบดี</h5>
+                                        <p class="card-text"><small class="text-muted">ให้บริการในลักษณะบริการเบ็ดเสร็จ ณ จุดเดียว ที่มุ่งเน้นการดูแลผู้ป่วยแบบบูรณการ เพื่อให้การรักษามีประสิทธิภาพ</small></p>
+                                        <a target="new" href="https://med.mahidol.ac.th/cvmc/th/content/premium?fbclid=IwAR0B8jaDqNvISJfK10drhW3n-E8sW2wrM3LF9Ydx9UlBAE7CdrlLpyspdQo" class="detail-link">
+                                            <p class="card-text stb_color">รายละเอียดเพิ่มเติม&ensp;<i class="fa fa-arrow-alt-circle-right"></i></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-deck col-md-3">
+                                <div class="card">
+                                        <img class="card-img-top" src="{{ url('storage/Images/2.jpg') }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><span class="stb_color">ศูนย์หัวใจ</span> | โรงพยาบาลรามาธิบดี</h5>
+                                        <p class="card-text"><small class="text-muted">ให้บริการในลักษณะบริการเบ็ดเสร็จ ณ จุดเดียว ที่มุ่งเน้นการดูแลผู้ป่วยแบบบูรณการ เพื่อให้การรักษามีประสิทธิภาพ</small></p>
+                                        <a target="new" href="https://med.mahidol.ac.th/cvmc/th/content/premium?fbclid=IwAR0B8jaDqNvISJfK10drhW3n-E8sW2wrM3LF9Ydx9UlBAE7CdrlLpyspdQo" class="detail-link">
+                                            <p class="card-text stb_color">รายละเอียดเพิ่มเติม&ensp;<i class="fa fa-arrow-alt-circle-right"></i></p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-       
+        
 
 
     </body>
